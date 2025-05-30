@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Weisetech">
+
+    <test name="About us page">
+        <classes>
+            <class name="Aboutuspage"/>
+        </classes>
+    </test>
+    <test name="Verify Home page title and images">
+        <classes>
+            <class name="Homepage"/>
+        </classes>
+    </test>
+    <test name="Verify all images">
+        <classes>
+            <class name="Homepageimg" />
+        </classes>
+    </test>
+    <test name="Verify all Links">
+        <classes>
+            <class name="Homepagesalllinks" />
+        </classes>
+    </test>
+    <test name="Website development">
+        <classes>
+            <class name="Websitedevelopment" />
+        </classes>
+    </test>
+    <test name="Softwareservice">
+        <classes>
+            <class name="Softwareservicepage" />
+        </classes>
+    </test>
+</suite>

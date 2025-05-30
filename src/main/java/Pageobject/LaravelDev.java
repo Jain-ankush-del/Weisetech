@@ -10,11 +10,11 @@ public class LaravelDev {
 
     public WebDriver driver;
     By servicedropdown = By.cssSelector("a[role='button']");
-    By serivcelink = By.cssSelector("ul[id='menu-main-menu'] li ul li:nth-child(3)");
+    By Laravallink = By.cssSelector("ul[id='menu-main-menu'] li ul li:nth-child(3)");
     By PageTitle = By.cssSelector(".mb-3");
     By LaravelDevelopmenttitele = By.cssSelector("div[class='content-box'] h4 strong");
     By ELD = By.cssSelector("body > section:nth-child(5) > div:nth-child(1) > div:nth-child(2) > h2:nth-child(1)");
-    By Countbox = By.cssSelector("div[class*='aos-animate']");
+    By CountELDcards = By.cssSelector("div[class*='aos-animate']");
     By developmentprocesstitle = By.cssSelector("div[class='subhead mb-20'] h2");
     By countportfolio = By.cssSelector("div[class='service-portfolio-card']");
     By countindustries = By.cssSelector("div[class*='p-3']");
@@ -32,8 +32,8 @@ public class LaravelDev {
     public List<WebElement> getimage() {
         return this.driver.findElements(image);
     }
-    public WebElement getserivcelink() {
-        return this.driver.findElement(serivcelink);
+    public WebElement getLaravallink() {
+        return this.driver.findElement(Laravallink);
     }
     public WebElement getPageTitle() {
         return this.driver.findElement(PageTitle);
@@ -44,14 +44,16 @@ public class LaravelDev {
 
     public WebElement getELD() {
         return this.driver.findElement(ELD);
+
+    }
+    public List<WebElement> getCountELDcards() {
+        return this.driver.findElements(CountELDcards);
     }
     public WebElement getdevelopmentprocesstitle() {
         return this.driver.findElement(developmentprocesstitle);
     }
 
-    public List<WebElement> getCountbox() {
-        return this.driver.findElements(Countbox);
-    }
+
     public List<WebElement> getcountportfolio() {
         return this.driver.findElements(countportfolio);
     }

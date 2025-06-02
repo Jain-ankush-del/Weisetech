@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Weisetech">
-
+    <listeners><listener class-name="Academy.Listeners"/></listeners>
     <test name="About us page">
         <classes>
             <class name="Aboutuspage"/>
@@ -30,6 +30,17 @@
     <test name="Softwareservice">
         <classes>
             <class name="Softwareservicepage" />
+        </classes>
+    </test>
+
+<test name="Ourwork">
+<classes>
+    <class name="Ourworkpage" />
+</classes>
+</test>
+    <test name="laravelpage">
+        <classes>
+            <class name="Laravelpage" />
         </classes>
     </test>
 </suite>

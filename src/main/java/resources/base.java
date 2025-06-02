@@ -1,11 +1,15 @@
 package resources;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -45,6 +49,15 @@ public WebDriver initializationdriver() throws IOException {
     return driver;
 
 }
+
+    public String getScrrenshotpath(String testCaseName, WebDriver driver) throws IOException {
+
+        TakesScreenshot ts = (TakesScreenshot) driver;
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        String destinationfile = System.getProperty("user.dir")+"\\reports\\"+testCaseName+".png";
+        FileUtils.copyFile(source,new File(destinationfile));
+        return destinationfile;
+    }
 
 }
 

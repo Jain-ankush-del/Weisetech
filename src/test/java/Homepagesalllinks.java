@@ -1,4 +1,6 @@
 import Pageobject.homepage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -14,6 +16,8 @@ public class Homepagesalllinks extends base
 {
     public WebDriver driver;
     //public homepage hm;
+    public static Logger log = LogManager.getLogger(base.class.getName());
+
 
     @BeforeTest
     public void initialize() throws IOException, InterruptedException {
@@ -47,7 +51,7 @@ public class Homepagesalllinks extends base
             String url = link.getAttribute("href");
 
             if(url != null && !url.trim().isEmpty()) {
-                System.out.println("Clicking link: " + text + " (" + url + ")");
+                log.info("Clicking link: " + text + " (" + url + ")");
                 try {
                     Thread.sleep(2000);
                     link.click();
@@ -61,10 +65,10 @@ public class Homepagesalllinks extends base
                     driver.get(prop.getProperty("url"));
                     Thread.sleep(2000);
                 } catch (Exception e) {
-                    System.out.println("Failed to click link: " + url);
+                    log.info("Failed to click link: " + url);
                 }
             } else {
-                System.out.println("Skipped empty link at index " + i);
+                log.info("Skipped empty link at index " + i);
             }
 
 

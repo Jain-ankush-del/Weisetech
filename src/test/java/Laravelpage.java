@@ -1,5 +1,7 @@
 import Pageobject.LaravelDev;
 import Pageobject.Softwaresevicepage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +18,7 @@ public class Laravelpage extends base {
 
 
     public WebDriver drive;
+    public static Logger log = LogManager.getLogger(base.class.getName());
     @BeforeTest
     public void browserope() throws IOException {
         driver = initializationdriver();
@@ -34,13 +37,16 @@ public class Laravelpage extends base {
         String expected = "Laravel Development";
 
         Assert.assertEquals(actual,expected);
+        log.info("Verify the page title");
 
         Thread.sleep(2000);
 
         String actual1 = ld.getLaravelDevelopmenttitele().getText();
         String expected1 = "Laravel Development";
 
+
         Assert.assertEquals(actual1,expected1);
+        log.info("Verify the title");
 
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,500)");
@@ -49,6 +55,7 @@ public class Laravelpage extends base {
         String expected2 = "Expert Laravel Development for Scalable, Secure Web Solutions";
 
         Assert.assertEquals(actual2,expected2);
+        log.info("Verify the title");
 
         Thread.sleep(4000);
 
@@ -61,9 +68,9 @@ public class Laravelpage extends base {
         System.out.println(cards.size());
 
         if(cards.size() == 4) {
-            System.out.println("4 cards exact match");
+            log.info("4 cards exact match");
         }else  {
-            System.out.println("Expected 4 cards, but found"  + cards.size());
+            log.info("Expected 4 cards, but found"  + cards.size());
         }
 
         JavascriptExecutor js2 = (JavascriptExecutor)driver;
@@ -80,24 +87,24 @@ public class Laravelpage extends base {
         js3.executeScript("window.scrollBy(0,1500)");
 
         List<WebElement> Portfolio = ld.getcountportfolio();
-        System.out.println(Portfolio.size());
+        log.info(Portfolio.size());
 
         if(Portfolio.size() == 4) {
-            System.out.println("4 portfolio exact match");
+            log.info("4 portfolio exact match");
         }else {
-            System.out.println("Expected 4 portfolio, but found" + Portfolio.size());
+            log.info("Expected 4 portfolio, but found" + Portfolio.size());
         }
 
         JavascriptExecutor js4 = (JavascriptExecutor)driver;
         js4.executeScript("window.scrollBy(0,3000)");
 
         List<WebElement> industries = ld.getcountindustries();
-        System.out.println(industries.size());
+        log.info(industries.size());
 
         if(industries.size() == 10) {
-            System.out.println("10 industries exact match");
+            log.info("10 industries exact match");
         }else {
-            System.out.println("Expected 10 industries, but found" + industries.size());
+            log.info("Expected 10 industries, but found" + industries.size());
         }
     }
     @Test(priority = 2)
@@ -105,7 +112,7 @@ public class Laravelpage extends base {
         LaravelDev ld = new LaravelDev(driver);
         Thread.sleep(5000);
         List<WebElement> image = ld.getimage();
-        System.out.println(image.size());
+        log.info(image.size());
 
         for(int i=0;i< image.size(); i++) {
             WebElement img = image.get(i);
@@ -113,9 +120,9 @@ public class Laravelpage extends base {
             String imagepath = img.getAttribute("src");
 
             if(imagepath != null && !imagepath.trim().isEmpty()) {
-                System.out.println(text +"("+imagepath+")");
+                log.info(text +"("+imagepath+")");
             }else {
-                System.out.println("Skipped any attriubute not avaliable" +i);
+                log.info("Skipped any attriubute not avaliable" +i);
             }
         }
     }

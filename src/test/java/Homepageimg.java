@@ -1,4 +1,6 @@
 import Pageobject.homepage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterTest;
@@ -13,11 +15,13 @@ public class Homepageimg extends base
 {
 
     public WebDriver driver;
+    public static Logger log = LogManager.getLogger(base.class.getName());
     //public homepage hm;
 
     @BeforeTest
     public void initialize() throws IOException, InterruptedException {
         driver = initializationdriver();
+
         Thread.sleep(4000);
         driver.get(prop.getProperty("url"));
         Thread.sleep(5000);
@@ -42,10 +46,10 @@ public class Homepageimg extends base
             String imagepath = Imagename.getAttribute("src");
 
             if (imagepath != null && !imagepath.trim().isEmpty()) {
-                System.out.println(  text + " (" + imagepath + ")");
+                log.info(  text + " (" + imagepath + ")");
 
             } else {
-                System.out.println("Skipped any attribute not available" + i);
+                log.info("Skipped any attribute not available" + i);
             }
         }
     }
